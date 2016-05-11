@@ -1,0 +1,75 @@
+#if($breakingNewsArticles.size() > 0)
+  #foreach($entry in $breakingNewsArticles)
+    #set($article = $entry)
+	#set($contentId = $article.contentId.contentId.contentIdString.replace('.', '_'))
+	#if(!$m.local.hiddenBreakingNewsArticles.contains($article.contentId.contentId.contentIdString))
+      #if($content.text.value)
+        #set($text = $content.text.value)
+      #else
+        #set($text = $article.name)
+      #end
+
+      #set($canonicalPath = $p_path.resolve($article.contentId))
+      #if($canonicalPath)
+        #set($canonicalLink = "#link({'path': $canonicalPath, 'htmlEncodeLink': 'true', 'requestAttribs': {'localLinksEnabled': false}})")
+      #end
+
+        <!-- // BREAKING NEWS START -->
+      <div class="breaking js-breaking-$contentId">
+        <div class="breaking__wrapper">
+            #if($canonicalLink)
+              <a class="breaking__link" title="$!article.name" href="$canonicalLink">
+            #else
+              <a class="breaking__link" title="$!article.name">
+            #end
+            <strong class="breaking__term">$content.term.value</strong>
+            <strong class="breaking__title">$text</strong>
+          </a>
+          <button class="breaking__close-btn btn-text js-breaking-btn-close">
+            <span class="iconf-close" aria-hidden="true"></span>
+            <span class="show-for-sr">Close</span>
+          </button>
+        </div>
+      </div>
+      <!-- // BREAKING NEWS END -->
+	#end
+
+	<script>
+        $(document).ready(function() {
+            $.removeCookie("breakingnews");
+            var hiddenItems = '$m.local.hiddenBreakingNewsArticlesInCookies';
+
+            if (hiddenItems !== '') {
+                $.cookie("hiddenBreakingNewsArticles", hiddenItems, {
+                    path: "/",
+                    expires: 365
+                });
+            }
+
+            var selectors = {
+                container: '.js-breaking-$contentId',
+                closeBtn: '.js-breaking-btn-close'
+            };
+
+            var conatiner = $(selectors.container);
+            var closeBtn = conatiner.find(selectors.closeBtn);
+
+            closeBtn.click(function() {
+                conatiner.remove();
+                var hiddenBreakingNewsArticles = $.cookie("breakingnews");
+                if (typeof hiddenBreakingNewsArticles == 'undefined' || hiddenBreakingNewsArticles.lenght == 0) {
+                    hiddenBreakingNewsArticles = '$article.contentId.contentId.getContentIdString()';
+                } else {
+                    hiddenBreakingNewsArticles += ',' + '$article.contentId.contentId.getContentIdString()';
+                }
+                $.cookie("breakingnews", hiddenBreakingNewsArticles, {
+                    path: "/",
+                    expires: 365
+                });
+            });
+        });
+
+	</script>
+
+  #end
+#end

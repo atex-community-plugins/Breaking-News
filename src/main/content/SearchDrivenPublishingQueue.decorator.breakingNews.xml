@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+    <input-template name="com.atex.plugins.breakingNews.SearchDrivenPublishingQueue.decorator.breakingNews" label="Breaking News Filter">
+        <policy>com.atex.plugins.breakingnews.decorators.DecoratorBreakingNewsBased</policy>
+        <editor>com.atex.plugins.baseline.widget.OInlineContext</editor>
+        <viewer>com.atex.plugins.baseline.widget.OInlineContext</viewer>
+        <idparam name="contextInputTemplate:orchid_TOCENTRY">
+            <externalid>com.atex.plugins.breakingNews.SearchDrivenPublishingQueue.decorator.breakingNews</externalid>
+        </idparam>
+        <idparam name="contextInputTemplate:orchid_TOCITEM">
+            <externalid>com.atex.plugins.breakingNews.SearchDrivenPublishingQueue.decorator.breakingNews</externalid>
+        </idparam>
+        <idparam name="contextInputTemplate:orchid_CONTENTCREATOR">
+            <externalid>com.atex.plugins.breakingNews.SearchDrivenPublishingQueue.decorator.breakingNews</externalid>
+        </idparam>
+        <type>Article</type>
+        <param name="ViewState_insert">false</param>
+        <param name="EditState_saveAndClose">true</param>
+        <param name="EditState_saveAndInsert">false</param>
+        <param name="EditState_saveAndFastInsert">true</param>
+        <param name="EditState_saveAndView">true</param>
+        <param name="EditNewState_saveAndClose">false</param>
+        <param name="EditNewState_saveAndInsert">false</param>
+        <param name="EditNewState_saveAndFastInsert">true</param>
+        <param name="EditNewState_saveAndView">false</param>
+        <param name="ViewState_copy">true</param>
+        <param name="metadataPath">metadata</param>
+        <layout name="typePadding" input-template="p.Group">
+            <param name="showLabel">false</param>
+            <param name="showFieldset">false</param>
+            <param name="cssClass">p_padding</param>
+            <field name="description" input-template="p.TextOutput">
+                <help>com.atex.plugins.baseline.pq.SearchDriven.help.breakingNews.custom</help>
+                <param name="inlineHelp">true</param>
+            </field>
+        </layout>
+    </input-template>
+</template-definition>

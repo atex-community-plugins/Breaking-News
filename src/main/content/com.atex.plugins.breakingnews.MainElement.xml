@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <!--This file contains input template definitions -->
+  <input-template name="com.atex.plugins.breakingnews.MainElement" label="com.atex.plugins.breakingnews.mainElement">
+    <policy>com.atex.plugins.baseline.policy.BaselinePolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    <editor contextName="orchid_TOCENTRY">com.polopoly.siteengine.standard.contentlist.OContentListEntryBasePolicyWidget</editor>
+    <viewer contextName="orchid_TOCENTRY">com.polopoly.siteengine.standard.contentlist.OContentListEntryBasePolicyWidget</viewer>
+    <type>LayoutElement</type>
+    <param name="renderTemplateIconInSelect">true</param>
+
+    <content-list name="articles" input-template="standard.ArticleContentListWrapper" />
+
+    <param name="ViewState_insert">false</param>
+    <param name="ViewState_refresh">true</param>
+    <param name="EditState_saveAndClose">true</param>
+    <param name="EditState_saveAndInsert">false</param>
+    <param name="EditState_saveAndFastInsert">false</param>
+    <param name="EditState_saveAndView">true</param>
+    <param name="EditNewState_saveAndClose">false</param>
+    <param name="EditNewState_saveAndInsert">false</param>
+    <param name="EditNewState_saveAndFastInsert">true</param>
+    <param name="EditNewState_saveAndView">false</param>
+
+    <field name="name" input-template="p.ContentName" label="com.atex.plugins.breakingnews.name">
+      <param name="default">Breaking News</param>
+    </field>
+
+    <field name="term" input-template="p.TextInput" label="com.atex.plugins.breakingnews.term">
+      <param name="default">Breaking News:</param>
+    </field>
+
+    <field name="text" input-template="p.TextInput" label="com.atex.plugins.breakingnews.text">
+        <param name="inlineHelp">true</param>
+        <help>com.atex.plugins.breakingnews.text.help</help>
+    </field>
+
+    <field name="articles" input-template="p.ContentListEntryContainer" label="com.atex.plugins.breakingnews.article">
+      <param name="contentListName">articles</param>
+    </field>
+
+    <field name="publishingQueueCreator" input-template="p.ContentCreator" label="com.atex.plugins.list.newPublishingQueue">
+      <param name="createWithSecurityParent">true</param>
+      <param name="securityParentAlias">content</param>
+      <param name="insertTargetAlias">content</param>
+      <param name="askInsertTarget">false</param>
+      <param name="insertionContentListName">publishingQueue</param>
+      <param name="askInsertionContentListName">false</param>
+      <param name="showCategorySelectWithOneCategory">false</param>
+      <param name="askContentListPosition">false</param>
+      <param name="insertPosition">top</param>
+      <idparam name="templateRoot">
+        <externalid>p.siteengine.SourcesRepositoryTemplates</externalid>
+      </idparam>
+    </field>
+    <field name="publishingQueue" input-template="p.ContentListEntryContainer" label="com.atex.plugins.list.publishingQueue">
+      <param name="contentListName">publishingQueue</param>
+      <param name="showActionButtonsInViewMode">false</param>
+    </field>
+
+    <output-templates mode="www">
+      <id>com.atex.plugins.breakingnews.MainElement.ot</id>
+    </output-templates>
+  </input-template>
+</template-definition>
