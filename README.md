@@ -7,6 +7,7 @@ Steps to install:
 1. Add a new field in standard.Article template	
 <br />
 ```<field name="breakingNews" input-template="p.Checkbox" label="Breaking News" />```
+<br />
 2. Add new component in standard.Article.Mapping
 <br />
 ```<component group="mapping" name="breakingNews.checked">breakingNews_b</component>```
