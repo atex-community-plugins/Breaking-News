@@ -2,12 +2,13 @@ Breaking News Plugin
 ===============
 This is Breaking News Plugin for Polopoly
 
-Steps to install:
+Steps to install: 
+<br />
 1. Add a new field in standard.Article template	
-   <field name="breakingNews" input-template="p.Checkbox" label="Breaking News" />
+   ```<field name="breakingNews" input-template="p.Checkbox" label="Breaking News" />```
 	
 2. Add new component in standard.Article.Mapping
-   <component group="mapping" name="breakingNews.checked">breakingNews_b</component>
+   ```<component group="mapping" name="breakingNews.checked">breakingNews_b</component>```
 
 ## Polopoly Version
 10.16.0-fp1
