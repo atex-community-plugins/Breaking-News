@@ -2,8 +2,6 @@
 # pages. See "Plugin contributed web resources" on http://support.polopoly.com for
 # documentation.
 
-# The example plugin style. Compiled from style.less.
-/style.css
-
 # The jquery cookie callback mapping javascript. Compressed and renamed from jquery.cookie.js.
 /jquery.cookie.min.js
+/breaking-news.min.js

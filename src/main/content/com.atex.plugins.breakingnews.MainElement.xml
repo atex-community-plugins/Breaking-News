@@ -36,6 +36,15 @@
         <help>com.atex.plugins.breakingnews.text.help</help>
     </field>
 
+    <field name="seconds" input-template="p.TextInput" label="com.atex.plugins.breakingnews.seconds">
+      <policy>com.polopoly.cm.app.policy.NumberInputPolicy</policy>
+      <param name="inlineHelp">true</param>
+      <help>com.atex.plugins.breakingnews.seconds.help</help>
+      <param name="type">int</param>
+      <param name="size">4</param>
+      <param name="default">10</param>
+    </field>
+
     <field name="articles" input-template="p.ContentListEntryContainer" label="com.atex.plugins.breakingnews.article">
       <param name="contentListName">articles</param>
     </field>
