@@ -34,7 +34,13 @@
     <testnext.version>2.1.2</testnext.version>
     <baseline.version>4.0.3</baseline.version>
   </properties>
-  
+
+  <scm>
+    <developerConnection>scm:git:git@github.com:atex-community-plugins/breaking-news.git</developerConnection>
+    <url>https://github.com/atex-community-plugins/breaking-news</url>
+    <tag>HEAD</tag>
+  </scm>
+
   <distributionManagement>
     <repository>
       <uniqueVersion>false</uniqueVersion>
