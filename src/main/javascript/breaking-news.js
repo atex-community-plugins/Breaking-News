@@ -45,12 +45,15 @@ window.jc.breakingNews = window.jc.breakingNews || {};
 
         return {
           hideBanner: function() {
+            log('hide banner for ' + contentId);
+
             clearInterval(counterInterval);
             $breakingNews.removeClass('is-open');
+            this.addArticleInCookie(contentId);
           },
 
           displayBanner: function() {
-            log('start display');
+            log('start display for ' + contentId);
 
             $breakingNewsCount.html(count);
             $breakingNews.addClass('is-open');
@@ -108,7 +111,6 @@ window.jc.breakingNews = window.jc.breakingNews || {};
 
               $breakingNewsClose.on('click', function() {
                 self.hideBanner();
-                self.addArticleInCookie(articleId);
               });
             }
           }
