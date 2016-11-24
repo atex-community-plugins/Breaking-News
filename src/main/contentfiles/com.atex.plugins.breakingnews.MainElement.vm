@@ -17,7 +17,6 @@
     <div aria-live="polite" class="breaking-news-banner js-breaking-news js-breaking-$contentId" data-contentid="$contentId">
       <div class="breaking-news-banner__inner ">
         <div class="content-center content-gutter">
-          <div class="breaking-news-banner__category">$content.term.value</div>
           <div class="breaking-news-banner__headline">
             #if($canonicalLink)
             <a href="$canonicalLink">$article.headline</a>
