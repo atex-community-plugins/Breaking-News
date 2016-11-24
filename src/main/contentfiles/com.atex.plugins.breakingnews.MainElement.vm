@@ -3,28 +3,19 @@
     #set($article = $entry)
     #set($contentId = $article.contentId.contentId.contentIdString.replace('.', '_'))
     #if($content.text.value)
-      #set($text = $content.text.value)
+      #set($text = "$!{content.term.value}$content.text.value")
     #else
-      #set($text = $article.name)
+      #set($text = "$!{content.term.value}$article.headline")
     #end
-
     #set($canonicalPath = $p_path.resolve($article.contentId))
     #if($canonicalPath)
       #set($canonicalLink = "#link({'path': $canonicalPath, 'htmlEncodeLink': 'true', 'requestAttribs': {'localLinksEnabled': false}})")
     #end
-
-    <!-- // BREAKING NEWS START -->
     <div aria-live="polite" class="breaking-news-banner js-breaking-news js-breaking-$contentId" data-contentid="$contentId">
       <div class="breaking-news-banner__inner ">
         <div class="content-center content-gutter">
           <div class="breaking-news-banner__headline">
-            #if($canonicalLink)
-            <a href="$canonicalLink">$article.headline</a>
-            <a class="breaking__link" title="$!article.name" href="$canonicalLink">$text</a>
-            #else
-            <a href="#">$article.headline</a>
-            <a class="breaking__link" title="$!article.name">$text</a>
-            #end
+            <a href="$!canonicalLink">$text</a>
           </div>
           <div class="breaking-news-banner__close js-breaking-news-close">
             <i class="icon icon--close"></i>
@@ -34,6 +25,5 @@
         </div>
       </div>
     </div>
-    <!-- // BREAKING NEWS END -->
   #end
 #end
